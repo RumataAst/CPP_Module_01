@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akretov <akretov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/12 17:49:33 by akretov           #+#    #+#             */
-/*   Updated: 2025/01/13 16:31:49 by akretov          ###   ########.fr       */
+/*   Created: 2025/01/12 17:45:34 by akretov           #+#    #+#             */
+/*   Updated: 2025/01/13 17:07:13 by akretov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void    randomChump( std::string name ) {
-    Zombie  Chump(name);
-    Chump.announce();
+
+Zombie::Zombie(std::string name) : _name(name) {
+    std::cout << _name << " was created" << std::endl;
+}
+
+Zombie::~Zombie(void) {
+    std::cout << _name << " was destroyed" << std::endl;
+}
+
+void    Zombie::announce(void) {
+    std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

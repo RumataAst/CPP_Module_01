@@ -6,12 +6,12 @@
 #    By: akretov <akretov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/02 16:15:06 by akretov           #+#    #+#              #
-#    Updated: 2025/01/13 15:34:25 by akretov          ###   ########.fr        #
+#    Updated: 2025/01/13 17:03:53 by akretov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= BraiiiiiiinnnzzzZ
-SRCS    := main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRCS    := Zombie.cpp zombieHorde.cpp main.cpp
 BIN		:= bin
 OBJS    := $(addprefix $(BIN)/, $(SRCS:.cpp=.o))
 INC		:= include
