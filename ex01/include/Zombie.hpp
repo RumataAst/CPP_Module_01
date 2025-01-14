@@ -6,7 +6,7 @@
 /*   By: akretov <akretov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 17:39:36 by akretov           #+#    #+#             */
-/*   Updated: 2025/01/13 17:15:12 by akretov          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:50:47 by akretov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ private:
     std::string _name;
 
 public:
-    Zombie(std::string name);
+    Zombie();
     ~Zombie();
-    void announce( void );
+    void    setName (std::string name);
+    void    announce( void );
 };
 
 Zombie* zombieHorde( int N, std::string name );

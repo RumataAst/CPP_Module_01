@@ -6,21 +6,24 @@
 /*   By: akretov <akretov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 17:47:59 by akretov           #+#    #+#             */
-/*   Updated: 2025/01/14 17:25:52 by akretov          ###   ########.fr       */
+/*   Updated: 2025/01/14 18:11:43 by akretov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
 int main() {
-    std::string name = "Zombie";
-    int N = 5;
+    std::string     string = "HI THIS IS BRAIN";
+    std::string     *stringPTR = &string;
+    std::string&    stringREF = string;
 
-    // Create the horde
-    Zombie* horde = zombieHorde(N, name);
+    std::cout << "Memory of the string: " << &string << std::endl;
+    std::cout << "Memory of the pointer to a string: " << &stringPTR << std::endl;
+    std::cout << "Memory of the reference of a string: " << &stringREF << std::endl;
 
-    // Free the horde
-    delete[] horde;
+    std::cout << "Value of the string: " << string << std::endl;
+    std::cout << "Value of the pointer to a string: " << stringPTR << std::endl;
+    std::cout << "Value of the reference of a string: " << stringREF << std::endl;
 
     return 0;
 }
