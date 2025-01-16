@@ -6,12 +6,12 @@
 #    By: akretov <akretov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/02 16:15:06 by akretov           #+#    #+#              #
-#    Updated: 2025/01/16 20:51:52 by akretov          ###   ########.fr        #
+#    Updated: 2025/01/16 17:33:59 by akretov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Replace
-SRCS    := main.cpp replace.cpp
+NAME	= Harl_2.0
+SRCS    := main.cpp Harl.cpp
 BIN		:= bin
 OBJS    := $(addprefix $(BIN)/, $(SRCS:.cpp=.o))
 INC		:= include

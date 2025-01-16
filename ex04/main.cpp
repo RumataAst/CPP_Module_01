@@ -1,55 +1,59 @@
 #include "Replace.hpp"
-void    find_and_replace(const FILE* filename,const std::string &to_be_replaced,const std::string &replace) {
-    FILE    *output = fopen("filename.replace", "w");
-    if (!output) {
-        std::cout << "Couldn't create a file" << std::endl;
-        return ; //maybe add error code in the future
+
+
+void read_file(std::ifstream &in, std::string &out) {
+    char c;
+    while (in >> std::noskipws >> c) {
+        out.push_back(c);
+    }
+    if (in.fail() && !in.eof()) {
+        std::cerr << "read_file():: File is corrupted." << std::endl;
+        throw;
     }
 }
 
-int checkSpacesAndLength(const std::string &input) {
-    if (input.empty()) {
-        std::cout << "Input cannot be empty. Please try again." << std::endl;
-        return EMPTY_INPUT;
+void write_to_new_file(std::string &file_content, const std::string &to_be_replaced, const std::string &replace_with) {
+    std::string::size_type pos;
+    while ((pos = file_content.find(to_be_replaced)) != std::string::npos) {
+        file_content.replace(pos, to_be_replaced.length(), replace_with);
     }
-
-    bool isOnlySpaces = true;
-    for (size_t i = 0; i < input.length(); ++i)  {
-        if (!std::isspace(input[i])) {
-            isOnlySpaces = false;
-            break;
-        }
-    }
-    if (isOnlySpaces) {
-        std::cout << "Input cannot be just spaces or tabs. Please try again." << std::endl;
-        return ONLY_SPACES;
-    }
-    return VALID_INPUT;
 }
-/* Take 3 arguments: Filename, s1, s2. 
-    Find every s1 and replace it to s2 
-    without using replace function*/
-int main (int argc, char *argv[]) {
-    std::string to_be_replaced, replace;
-    FILE *filename;
 
-    if (argc == 4){
-        filename = fopen(argv[1], "r");
-        to_be_replaced = argv[2];
-        replace = argv[3];
-        if (!filename) {
-            std::cout << "File does not exist or cannot be opened." << std::endl;
-            return (FILE_DOESNT_EXIST);
-        }
-        if (checkSpacesAndLength(to_be_replaced) == VALID_INPUT 
-            && checkSpacesAndLength(replace) == VALID_INPUT)
-            {
-                find_and_replace(filename, to_be_replaced, replace);
-            }
+int main(int argc, char *argv[]) {
+    if (argc != 4) {
+        std::cerr << "Main:: Number of arguments should be 4" << std::endl;
+        return 1;
     }
-    else {
-        std::cout << "There should be only 3 arguments" << std::endl;
-        return (INCORRECT_NUMBER_ARGV);
+
+    std::string input_filename = argv[1];
+    std::string to_be_replaced = argv[2];
+    std::string replace_with = argv[3];
+
+    std::ifstream in(input_filename.c_str());
+    if (!in.is_open()) {
+        std::cerr << "Main:: Opening initial file failed" << std::endl;
+        return 98;
     }
+
+    std::string file_content;
+    try {
+        read_file(in, file_content);
+    } catch (...) {
+        return 3;
+    }
+
+    in.close();
+
+    write_to_new_file(file_content, to_be_replaced, replace_with);
+
+    std::ofstream out((input_filename + ".replace").c_str(), std::ios::trunc);
+    if (!out.is_open()) {
+        std::cerr << "Main:: Creating output file failed" << std::endl;
+        return 4;
+    }
+
+    out << file_content;
+    out.close();
+
     return 0;
 }
