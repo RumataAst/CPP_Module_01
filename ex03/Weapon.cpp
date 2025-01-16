@@ -3,7 +3,7 @@
 Weapon::Weapon(std::string type) : _type(type) {}
 
 Weapon::~Weapon(void) {
-    std::cout << "World no longer needs violance" << std::endl;
+    std::cout << "World no longer needs violence" << std::endl;
 }
 
 const std::string &Weapon::getType(void) {
