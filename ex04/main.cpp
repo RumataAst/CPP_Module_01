@@ -7,9 +7,7 @@ void    find_and_replace(const FILE* filename,const std::string &to_be_replaced,
     }
 }
 
-
-
-int checkSpacesAndLength(const std::string& input) {
+int checkSpacesAndLength(const std::string &input) {
     if (input.empty()) {
         std::cout << "Input cannot be empty. Please try again." << std::endl;
         return EMPTY_INPUT;

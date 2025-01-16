@@ -3,7 +3,9 @@
 HumanB::HumanB(const std::string &name) 
     : _name(name), _weapon(NULL) {}
 
-HumanB::~HumanB() {}
+HumanB::~HumanB() {
+    std::cout << _name << " RIP" << std::endl;
+}
 
 void HumanB::attack() const {
     if (_weapon) {
