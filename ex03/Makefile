@@ -6,11 +6,11 @@
 #    By: akretov <akretov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/02 16:15:06 by akretov           #+#    #+#              #
-#    Updated: 2025/01/15 17:44:14 by akretov          ###   ########.fr        #
+#    Updated: 2025/01/17 17:55:09 by akretov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Violance
+NAME	= Violence
 SRCS    := main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 BIN		:= bin
 OBJS    := $(addprefix $(BIN)/, $(SRCS:.cpp=.o))

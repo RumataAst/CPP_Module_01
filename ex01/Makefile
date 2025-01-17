@@ -6,11 +6,11 @@
 #    By: akretov <akretov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/02 16:15:06 by akretov           #+#    #+#              #
-#    Updated: 2025/01/13 17:03:53 by akretov          ###   ########.fr        #
+#    Updated: 2025/01/17 17:55:00 by akretov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= BraiiiiiiinnnzzzZ
+NAME	= Moar_brainz!
 SRCS    := Zombie.cpp zombieHorde.cpp main.cpp
 BIN		:= bin
 OBJS    := $(addprefix $(BIN)/, $(SRCS:.cpp=.o))
