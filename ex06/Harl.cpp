@@ -22,7 +22,7 @@ void Harl::error ( void ) {
 
 void Harl::complain( std::string level ) {
     const  std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    int  index = 0;
+    int  index = -1;
     void (Harl::*map[])() = {
         &Harl::debug,
         &Harl::info,
@@ -36,15 +36,24 @@ void Harl::complain( std::string level ) {
             break;
         }
     }
+
     if (index == -1) {
         std::cout << "Probably complaining about insignificant problems" << std::endl;
         return;
     }
 
     switch (index) {
-        case 0: (this->*map[0])();
-        case 1: (this->*map[1])();
-        case 2: (this->*map[2])();
-        case 3: (this->*map[3])(); break;
+        case 0: 
+            std::cout << "[ DEBUG ]" << std::endl; 
+            (this->*map[0])();
+        case 1: 
+            std::cout << "[ INFO ]" << std::endl; 
+            (this->*map[1])();
+        case 2: 
+            std::cout << "[ WARNING ]" << std::endl;         
+            (this->*map[2])();
+        case 3: 
+            std::cout << "[ ERROR ]" << std::endl;             
+            (this->*map[3])(); 
     }
 }

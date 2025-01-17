@@ -10,9 +10,9 @@ private:
     Weapon& _weapon;
 
 public:
-    HumanA(const std::string &name, Weapon &weapon); // Constructor
+    HumanA( const std::string &name, Weapon &weapon ); // Constructor
     ~HumanA();
-    void attack(void) const;
+    void attack( void ) const;
 };
 
 #endif
